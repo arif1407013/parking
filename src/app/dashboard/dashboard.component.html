@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div id="piechart"></div>
+        </div>
+        <div class="col-md-6">
+            <div id="linechart"></div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-12 pb-2">
+            <div class="card">
+                <div class="card-header">
+                    Total Cars Parked
+                </div>
+                <div class="card-body">
+                    {{dashboard_data?.total_parked}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-12 pb-2">
+            <div class="card">
+                <div class="card-header">
+                    Total Empty Slots
+                </div>
+                <div class="card-body">
+                    {{dashboard_data?.total_empty}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-12 pb-2">
+            <div class="card">
+                <div class="card-header">
+                    Total Microbus
+                </div>
+                <div class="card-body">
+                    {{dashboard_data?.total_microbus}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-12 pb-2">
+            <div class="card">
+                <div class="card-header">
+                    Total Car
+                </div>
+                <div class="card-body">
+                    {{dashboard_data?.total_car}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-12 pb-2">
+            <div class="card">
+                <div class="card-header">
+                    Total Truck
+                </div>
+                <div class="card-body">
+                    {{dashboard_data?.total_truck}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-12 pb-2">
+            <div class="card">
+                <div class="card-header">
+                    Vehicle parked more than 2 hour
+                </div>
+                <div class="card-body">
+                    {{dashboard_data?.total_overtime}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-12">
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <h3 class="col-9">Parking List</h3>
+        <a class="btn btn-primary col-3" routerLink="../add">
+            Add New Parking Information
+        </a>
+    </div>
+    <table class="table col-12">
+        <thead>
+            <tr>
+                <th>Sl</th>
+                <th>Owner Name</th>
+                <th>Vehicle Type</th>
+                <th>License No</th>
+                <th>Entry Time</th>
+                <th>Exit Time</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of (internal_data.getDataList()); let i=index;">
+                <td>{{ i+1 }}</td>
+                <td>{{ data?.owner_name }}</td>
+                <td>{{ data?.v_type }}</td>
+                <td>{{ data?.license_no }}</td>
+                <td>{{ data?.car_entry }}</td>
+                <td>{{ data?.car_exit }}</td>
+                <td>{{ data?.status }}</td>
+                <td>
+                    <a class="btn btn-secondary {{data?.status === 'Out' ? 'disabled' : ''}}" [routerLink]="'../edit'" [queryParams]="{data: (data | json), id: i}">
+                        Edit
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

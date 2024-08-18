@@ -1,0 +1,64 @@
+<form class="container" (submit)="saveForm()" [formGroup]="form">
+    <div class="row">
+        <h3 class="col-9">{{router.url.split('?')?.[0] === '/edit' ? 'Edit' : 'Add'}} Form</h3>
+        <a class="btn btn-danger col-3" routerLink="../list">
+            Go Back
+        </a>
+    </div>
+    <div class="form-group">
+        <label for="license_no">Vehicle License Number</label>
+        <input placeholder="Vehicle License Number" class="form-control" id="license_no" type="text" formControlName="license_no">
+    </div>
+    <div class="form-group">
+        <label for="v_type">Vehicle Type</label>
+        <select class="form-select" id="v_type" formControlName="v_type">
+            <option [value]="''">Select Vehicle Type</option>
+            <option value="Microbus">Microbus</option>
+            <option value="Car">Car</option>
+            <option value="Truck">Truck</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="owner_name">Vehicle Owner Name</label>
+        <input placeholder="Vehicle Owner Name" class="form-control" type="text" id="owner_name" formControlName="owner_name">
+    </div>
+    <div class="form-group">
+        <label for="owner_phone">Vehicle Owner Phone</label>
+        <input placeholder="Vehicle Owner Phone" class="form-control" type="text" id="owner_phone" formControlName="owner_phone">
+    </div>
+    <div class="form-group">
+        <label for="status">Status</label>
+        <select class="form-select" id="status" formControlName="status">
+            <option [value]="''">Select Status</option>
+            <option value="In">In</option>
+            <option value="Out">Out</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="owner_address">Car Owner Address</label>
+        <textarea placeholder="Car Owner Address" class="form-control" id="owner_address" formControlName="owner_address"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="car_entry_date">Entry Date</label>
+        <input class="form-control" type="date" id="car_entry_date" formControlName="car_entry_date">
+    </div>
+    <div class="form-group">
+        <label for="car_entry_time">Entry Time</label>
+        <input class="form-control" type="time" id="car_entry_time" formControlName="car_entry_time">
+    </div>
+    <div class="form-group">
+        <label for="car_exit_date">Exit Date</label>
+        <input class="form-control" type="date" id="car_exit_date" formControlName="car_exit_date">
+    </div>
+    <div class="form-group">
+        <label for="car_exit_time">Exit Time</label>
+        <input class="form-control" type="time" id="car_exit_time" formControlName="car_exit_time">
+    </div>
+    <div class="form-group">
+        <label for="parking_charge">Parking Charge</label>
+        <input placeholder="Parking Charge" class="form-control" type="text" id="parking_charge" formControlName="parking_charge">
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">
+        Submit
+    </button>
+</form>
