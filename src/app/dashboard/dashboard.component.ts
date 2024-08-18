@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
       total_microbus: this.internal_data.getDataList()?.filter((vehicle: any) => vehicle?.v_type === 'Microbus')?.length,
       total_car: this.internal_data.getDataList()?.filter((vehicle: any) => vehicle?.v_type === 'Car')?.length,
       total_truck: this.internal_data.getDataList()?.filter((vehicle: any) => vehicle?.v_type === 'Truck')?.length,
-      total_overtime: this.internal_data.getDataList()?.filter((vehicle: any) => vehicle?.status === 'In' && new Date()?.getTime() - new Date(vehicle?.car_entry)?.getTime() > 7200000 )?.length,
+      total_overtime: this.internal_data.getDataList()?.filter((vehicle: any) => (vehicle?.status === 'In' ? new Date()?.getTime() : vehicle?.status === 'Out' ? new Date(vehicle?.car_exit)?.getTime() : 0) - new Date(vehicle?.car_entry)?.getTime() > 7200000 )?.length,
     }
   }
 

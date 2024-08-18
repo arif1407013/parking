@@ -1,6 +1,6 @@
 <form class="container" (submit)="saveForm()" [formGroup]="form">
     <div class="row">
-        <h3 class="col-9">{{router.url.split('?')?.[0] === '/edit' ? 'Edit' : 'Add'}} Form</h3>
+        <h3 class="col-9">{{router.url.split('?')[0] === '/edit' ? 'Edit' : 'Add'}} Form</h3>
         <a class="btn btn-danger col-3" routerLink="../list">
             Go Back
         </a>
