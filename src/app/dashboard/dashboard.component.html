@@ -6,6 +6,9 @@
         <div class="col-md-6">
             <div id="linechart" class="w-100"></div>
         </div>
+        <div class="col-12 pb-2">
+            <input class="form-control" type="date" [(ngModel)]="dateData" (ngModelChange)="getData()">
+        </div>
         <div class="col-md-6 col-sm-12 col-12 pb-2">
             <div class="card">
                 <div class="card-header">
