@@ -31,12 +31,12 @@ export class FormComponent implements OnInit {
       v_type: [''],
       owner_name: [''],
       owner_phone: [''],
-      status: [''],
+      status: new FormControl({value: 'In', disabled: true}),
       owner_address: [''],
       car_entry_date: new FormControl({value: '', disabled: false}),
       car_entry_time: new FormControl({value: '', disabled: false}),
-      car_exit_date: new FormControl({value: '', disabled: false}),
-      car_exit_time: new FormControl({value: '', disabled: false}),
+      car_exit_date: new FormControl({value: '', disabled: true}),
+      car_exit_time: new FormControl({value: '', disabled: true}),
       parking_charge: new FormControl({ value: '', disabled: true }),
     });
   }
@@ -60,6 +60,22 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.form.get('status')?.valueChanges.subscribe((val: any) => {
+      switch(val){
+        case 'In':
+          this.form.get('car_entry_date')?.enable();
+          this.form.get('car_entry_time')?.enable();
+          this.form.get('car_exit_date')?.disable();
+          this.form.get('car_exit_time')?.disable();
+          break;
+        case 'Out':
+          this.form.get('car_entry_date')?.disable();
+          this.form.get('car_entry_time')?.disable();
+          this.form.get('car_exit_date')?.enable();
+          this.form.get('car_exit_time')?.enable();
+          break;
+      }
+    });
     this.form.get('v_type')?.valueChanges.subscribe((val: any) => {
       switch (val) {
         case 'Microbus':
@@ -86,6 +102,8 @@ export class FormComponent implements OnInit {
           car_exit_date: temp_data?.car_exit?.split(' ')?.[0],
           car_exit_time: temp_data?.car_exit?.split(' ')?.[1],
         });
+        this.form.get('status')?.setValue('Out');
+        this.form.get('status')?.disable();
       }
     });
   }
